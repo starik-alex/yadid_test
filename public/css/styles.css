@@ -631,6 +631,34 @@ a { color: var(--color-link); text-underline-offset: 0.18em; }
 .mobile-bar .btn-whatsapp { flex: 0 0 auto; }
 .mobile-bar.is-hidden { transform: translateY(110%); }
 
+/* A discreet floating WhatsApp contact on desktop; mobile retains its existing bottom bar. */
+.desktop-whatsapp {
+  position: fixed;
+  inset-inline-end: 24px;
+  bottom: 24px;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.desktop-whatsapp svg { width: 24px; height: 24px; flex: none; }
+.desktop-whatsapp:active { transform: scale(0.98); }
+
+@media (max-width: 767px) {
+  .desktop-whatsapp { display: none; }
+}
+@media print {
+  .desktop-whatsapp { display: none; }
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 860px) {
